@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const contactController  = require('./ContactController');
 
 module.exports = class MenuController {
     constructor() {
@@ -13,7 +14,7 @@ module.exports = class MenuController {
                 ]
             }
         ];
-        this.contacts = [];
+        this.book = new contactController();
     }
 
     main() {
@@ -41,8 +42,16 @@ module.exports = class MenuController {
 
     addContact() {
         this.clear();
-        console.log('addContact called');
-        this.main();
+        inquirer.prompt(this.book.addContactQuestions).then((answers) => {
+            this.book.addContact(answers.name, answers.phone).then((contact) =>{
+                console.log("It was added dumb fuck");
+                this.main();
+            })
+            .catch((err) => {
+                console.log(err);
+                this.main();
+            });
+        });
     }
 
     getContactCount() {

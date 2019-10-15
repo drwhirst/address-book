@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "dhirst",
+    "password": null,
+    "database": "addressbookdev",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "test": {
+    "username": "dhirst",
+    "password": null,
+    "database": "addressbooktest",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
