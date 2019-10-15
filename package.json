@@ -1,0 +1,23 @@
+{
+  "name": "address-book",
+  "version": "1.0.0",
+  "description": "command line address book in node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drwhirst/address-book.git"
+  },
+  "keywords": [
+    "address",
+    "book"
+  ],
+  "author": "David Hirst",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drwhirst/address-book/issues"
+  },
+  "homepage": "https://github.com/drwhirst/address-book#readme"
+}
