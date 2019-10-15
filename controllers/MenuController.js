@@ -49,6 +49,10 @@ module.exports = class MenuController {
         return this.contacts.length;
     }
 
+    remindMe() {
+        return 'learning is a lifelong pursuit'
+    }
+
     exit() {
         console.log("Thanks for using the address book, bitch.");
         process.exit();
