@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/drwhirst/address-book/issues"
   },
-  "homepage": "https://github.com/drwhirst/address-book#readme"
+  "homepage": "https://github.com/drwhirst/address-book#readme",
+  "dependencies": {
+    "inquirer": "^5.1.0"
+  }
 }
