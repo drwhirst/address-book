@@ -93,6 +93,7 @@ module.exports = class MenuController {
                 if(contact === null){
                     this.clear();
                     console.log("Contact not found asshat");
+                    setTimeout(() => { this.searchForContact() }, 2000);
                 } else {
                     this.showContact(contact);
                 }
@@ -106,6 +107,42 @@ module.exports = class MenuController {
 
     showContact(contact){
         this._printContact(contact);
+        inquirer.prompt(this.book.showContactQuestions)
+        .then((answer) => {
+            switch(answer.selected) {
+                case "Delete contact":
+                    this.delete(contact);
+                    break;
+                case "Main menu":
+                    this.main();
+                    break;
+                default:
+                    console.log("Something went wrong");
+                    this.showContact(contact);
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            this.showContact(contact);
+        });
+    }
+
+    delete(contact){
+        inquirer.prompt(this.book.deleteConfirmQuestion)
+        .then((answer) => {
+            if(answer.confirmation){
+                this.book.delete(contact.id);
+                console.log("contact deleted like a little bitch.");
+                setTimeout(() => { this.main() }, 2000);
+            } else {
+                console.log("Contact not deleted because you suck.");
+                setTimeout(() => {this.showContact(contact)}, 2000);
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            this.main();
+        })
     }
 
     _printContact(contact){
